@@ -4,6 +4,12 @@ Support du langage **Frython** pour Visual Studio Code.
 
 Frython c'est Python, mais en français. Parce que pourquoi pas.
 
+## Installation
+
+1. Telecharger le fichier (disponible dans releases)
+2. Ouvrir avec vscode et faire clique droit
+3. Puis cliquer sur installer avec .vsix
+
 ## Fonctionnalités
 
 - **Coloration syntaxique** pour les fichiers `.fy`
