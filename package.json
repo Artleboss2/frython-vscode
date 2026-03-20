@@ -1,0 +1,64 @@
+{
+  "name": "frython",
+  "displayName": "Frython",
+  "description": "French Python — Frython language support for VS Code 🐓",
+  "version": "1.0.1",
+  "publisher": "Artleboss2",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artleboss2/frython"
+  },
+  "bugs": {
+    "url": "https://github.com/Artleboss2/frython/issues"
+  },
+  "homepage": "https://github.com/Artleboss2/frython#readme",
+  "keywords": [
+    "frython",
+    "french",
+    "python",
+    "français",
+    "language"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "frython",
+        "aliases": [
+          "Frython",
+          "frython"
+        ],
+        "extensions": [
+          ".fy"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icon.png",
+          "dark": "./icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "frython",
+        "scopeName": "source.frython",
+        "path": "./syntaxes/frython.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "frython",
+        "path": "./snippets/frython.json"
+      }
+    ]
+  }
+}

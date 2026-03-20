@@ -1,0 +1,197 @@
+{
+  "Afficher": {
+    "prefix": "aff",
+    "body": ["afficher($1)"],
+    "description": "afficher() — print()"
+  },
+  "Afficher f-string": {
+    "prefix": "afff",
+    "body": ["afficher(f\"$1\")"],
+    "description": "afficher() avec f-string"
+  },
+  "Si / Sinon": {
+    "prefix": "si",
+    "body": [
+      "si ${1:condition}:",
+      "\t${2:passer}",
+      "sinon:",
+      "\t${3:passer}"
+    ],
+    "description": "Bloc si/sinon"
+  },
+  "Si / Sinonsi / Sinon": {
+    "prefix": "sisi",
+    "body": [
+      "si ${1:condition}:",
+      "\t${2:passer}",
+      "sinonsi ${3:condition}:",
+      "\t${4:passer}",
+      "sinon:",
+      "\t${5:passer}"
+    ],
+    "description": "Bloc si/sinonsi/sinon"
+  },
+  "Définir une fonction": {
+    "prefix": "def",
+    "body": [
+      "déf ${1:nom_fonction}(${2:params}):",
+      "\t\"\"\"${3:Description.}\"\"\"",
+      "\t${4:passer}"
+    ],
+    "description": "Définir une fonction"
+  },
+  "Définir une fonction avec retour": {
+    "prefix": "defr",
+    "body": [
+      "déf ${1:nom_fonction}(${2:params}):",
+      "\t\"\"\"${3:Description.}\"\"\"",
+      "\tretourner ${4:valeur}"
+    ],
+    "description": "Fonction avec retourner"
+  },
+  "Définir une classe": {
+    "prefix": "cls",
+    "body": [
+      "classe ${1:NomClasse}:",
+      "\t\"\"\"${2:Description.}\"\"\"",
+      "",
+      "\tdef __init__(soi, ${3:params}):",
+      "\t\tsoi.${4:attribut} = ${4:attribut}",
+      "",
+      "\tdéf ${5:methode}(soi):",
+      "\t\t${6:passer}"
+    ],
+    "description": "Définir une classe"
+  },
+  "Classe héritée": {
+    "prefix": "clsh",
+    "body": [
+      "classe ${1:NomClasse}(${2:ClasseParent}):",
+      "\t\"\"\"${3:Description.}\"\"\"",
+      "",
+      "\tdef __init__(soi, ${4:params}):",
+      "\t\tsuper().__init__(${5:params})",
+      "\t\tsoi.${6:attribut} = ${6:attribut}"
+    ],
+    "description": "Classe avec héritage"
+  },
+  "Boucle tantque": {
+    "prefix": "tq",
+    "body": [
+      "tantque ${1:condition}:",
+      "\t${2:passer}"
+    ],
+    "description": "Boucle tantque"
+  },
+  "Boucle pour dans": {
+    "prefix": "pour",
+    "body": [
+      "pour ${1:element} dans ${2:iterable}:",
+      "\t${3:passer}"
+    ],
+    "description": "Boucle pour/dans"
+  },
+  "Boucle pour intervalle": {
+    "prefix": "pouri",
+    "body": [
+      "pour ${1:i} dans intervalle(${2:10}):",
+      "\t${3:passer}"
+    ],
+    "description": "Boucle pour avec intervalle"
+  },
+  "Boucle pour enumerer": {
+    "prefix": "poure",
+    "body": [
+      "pour ${1:i}, ${2:element} dans enumerer(${3:liste}):",
+      "\t${4:passer}"
+    ],
+    "description": "Boucle pour avec enumerer"
+  },
+  "Essayer / Sauf": {
+    "prefix": "ess",
+    "body": [
+      "essayer:",
+      "\t${1:passer}",
+      "sauf ${2:Exception} as ${3:e}:",
+      "\tafficher(f\"Erreur: {${3:e}}\")"
+    ],
+    "description": "Bloc essayer/sauf"
+  },
+  "Essayer / Sauf / Enfin": {
+    "prefix": "esse",
+    "body": [
+      "essayer:",
+      "\t${1:passer}",
+      "sauf ${2:Exception} as ${3:e}:",
+      "\tafficher(f\"Erreur: {${3:e}}\")",
+      "enfin:",
+      "\t${4:passer}"
+    ],
+    "description": "Bloc essayer/sauf/enfin"
+  },
+  "Importer module": {
+    "prefix": "imp",
+    "body": ["importer ${1:module}"],
+    "description": "Importer un module"
+  },
+  "Importer depuis": {
+    "prefix": "impd",
+    "body": ["de ${1:module} importer ${2:element}"],
+    "description": "Importer depuis un module"
+  },
+  "Lever une erreur": {
+    "prefix": "lev",
+    "body": ["lever ${1:ErreurValeur}(\"${2:message}\")"],
+    "description": "Lever une exception"
+  },
+  "Compréhension de liste": {
+    "prefix": "comp",
+    "body": [
+      "[${1:expression} pour ${2:x} dans ${3:iterable}]"
+    ],
+    "description": "Compréhension de liste"
+  },
+  "Compréhension avec condition": {
+    "prefix": "compc",
+    "body": [
+      "[${1:expression} pour ${2:x} dans ${3:iterable} si ${4:condition}]"
+    ],
+    "description": "Compréhension de liste avec condition"
+  },
+  "Lambda": {
+    "prefix": "lam",
+    "body": ["lambda ${1:x}: ${2:x}"],
+    "description": "Fonction lambda"
+  },
+  "Avec (context manager)": {
+    "prefix": "avec",
+    "body": [
+      "avec ${1:ouvrir('${2:fichier.txt}', '${3:r}')} comme ${4:f}:",
+      "\t${5:passer}"
+    ],
+    "description": "Bloc avec (with)"
+  },
+  "Main guard": {
+    "prefix": "main",
+    "body": [
+      "si __name__ == '__main__':",
+      "\t${1:main()}"
+    ],
+    "description": "Garde principale"
+  },
+  "Docstring": {
+    "prefix": "doc",
+    "body": [
+      "\"\"\"",
+      "${1:Description.}",
+      "",
+      "Arguments:",
+      "\t${2:param}: ${3:Description}",
+      "",
+      "Retourne:",
+      "\t${4:Description}",
+      "\"\"\""
+    ],
+    "description": "Docstring complète"
+  }
+}

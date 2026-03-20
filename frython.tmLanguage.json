@@ -1,0 +1,191 @@
+{
+  "name": "Frython",
+  "scopeName": "source.frython",
+  "fileTypes": ["fy"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#fstrings-double" },
+    { "include": "#fstrings-single" },
+    { "include": "#strings-triple-double" },
+    { "include": "#strings-triple-single" },
+    { "include": "#strings-double" },
+    { "include": "#strings-single" },
+    { "include": "#numbers" },
+    { "include": "#decorators" },
+    { "include": "#function-def" },
+    { "include": "#class-def" },
+    { "include": "#function-call" },
+    { "include": "#method-call" },
+    { "include": "#keywords-control" },
+    { "include": "#keywords-declaration" },
+    { "include": "#keywords-other" },
+    { "include": "#keywords-logical" },
+    { "include": "#self-super" },
+    { "include": "#builtins" },
+    { "include": "#booleans" },
+    { "include": "#errors" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "name": "comment.line.number-sign.frython",
+      "match": "(#).*$",
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.frython" }
+      }
+    },
+    "strings-triple-double": {
+      "name": "string.quoted.triple.double.frython",
+      "begin": "\"\"\"",
+      "end": "\"\"\"",
+      "patterns": [{ "name": "constant.character.escape.frython", "match": "\\\\." }]
+    },
+    "strings-triple-single": {
+      "name": "string.quoted.triple.single.frython",
+      "begin": "'''",
+      "end": "'''",
+      "patterns": [{ "name": "constant.character.escape.frython", "match": "\\\\." }]
+    },
+    "strings-double": {
+      "name": "string.quoted.double.frython",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "name": "constant.character.escape.frython", "match": "\\\\." }]
+    },
+    "strings-single": {
+      "name": "string.quoted.single.frython",
+      "begin": "'",
+      "end": "'",
+      "patterns": [{ "name": "constant.character.escape.frython", "match": "\\\\." }]
+    },
+    "fstrings-double": {
+      "name": "string.interpolated.double.frython",
+      "begin": "[fF]\"",
+      "end": "\"",
+      "patterns": [
+        { "include": "#fstring-expression" },
+        { "name": "constant.character.escape.frython", "match": "\\\\." }
+      ]
+    },
+    "fstrings-single": {
+      "name": "string.interpolated.single.frython",
+      "begin": "[fF]'",
+      "end": "'",
+      "patterns": [
+        { "include": "#fstring-expression" },
+        { "name": "constant.character.escape.frython", "match": "\\\\." }
+      ]
+    },
+    "fstring-expression": {
+      "name": "meta.interpolation.frython",
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": { "0": { "name": "punctuation.section.interpolation.begin.frython" } },
+      "endCaptures": { "0": { "name": "punctuation.section.interpolation.end.frython" } },
+      "patterns": [
+        { "include": "#numbers" },
+        { "include": "#builtins" },
+        { "include": "#booleans" },
+        { "include": "#method-call" },
+        { "include": "#function-call" },
+        { "include": "#operators" }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        { "name": "constant.numeric.float.frython", "match": "\\b[0-9]+\\.[0-9]*([eE][+-]?[0-9]+)?[jJ]?\\b" },
+        { "name": "constant.numeric.hex.frython", "match": "\\b0[xX][0-9a-fA-F_]+\\b" },
+        { "name": "constant.numeric.binary.frython", "match": "\\b0[bB][01_]+\\b" },
+        { "name": "constant.numeric.octal.frython", "match": "\\b0[oO][0-7_]+\\b" },
+        { "name": "constant.numeric.integer.frython", "match": "\\b[0-9][0-9_]*\\b" }
+      ]
+    },
+    "decorators": {
+      "match": "^\\s*(@)([a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_\\.]*)",
+      "captures": {
+        "1": { "name": "punctuation.definition.decorator.frython" },
+        "2": { "name": "entity.name.function.decorator.frython" }
+      }
+    },
+    "function-def": {
+      "match": "\\b(déf|def)\\s+([a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*)\\s*\\(",
+      "captures": {
+        "1": { "name": "keyword.declaration.function.frython" },
+        "2": { "name": "entity.name.function.frython" }
+      }
+    },
+    "class-def": {
+      "match": "\\b(classe)\\s+([a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*)",
+      "captures": {
+        "1": { "name": "keyword.declaration.class.frython" },
+        "2": { "name": "entity.name.class.frython" }
+      }
+    },
+    "function-call": {
+      "match": "\\b([a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.call.frython" }
+      }
+    },
+    "method-call": {
+      "match": "\\.([a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.method.frython" }
+      }
+    },
+    "keywords-control": {
+      "name": "keyword.control.frython",
+      "match": "\\b(si|sinon|sinonsi|tantque|pour|dans|casser|continuer|passer|retourner|rendement|asynchrone|attendre|pasdans)\\b"
+    },
+    "keywords-declaration": {
+      "name": "keyword.declaration.frython",
+      "match": "\\b(déf|def|classe|lambda)\\b"
+    },
+    "keywords-other": {
+      "name": "keyword.other.frython",
+      "match": "\\b(importer|de|comme|essayer|sauf|enfin|lever|avec|affirmer|global|nonlocal|supprimer)\\b"
+    },
+    "keywords-logical": {
+      "name": "keyword.operator.logical.frython",
+      "match": "\\b(et|ou|non|est|dans|pasdans)\\b"
+    },
+    "self-super": {
+      "name": "variable.language.frython",
+      "match": "\\b(soi|super)\\b"
+    },
+    "builtins": {
+      "name": "support.function.builtin.frython",
+      "match": "\\b(afficher|saisir|longueur|intervalle|liste|dictionnaire|ensemble|tuple|entier|decimal|chaine|booleen|enumerer|zipper|mapper|filtrer|trier|inverser|somme|maximum|minimum|absolu|arrondir|aide|type|ouvrir|fermer|identifiant|repr|appeler|executer|evaluer|octets|objet|propriete|statique|classique|tous|aucun|prochain|iter|hash|puissance|hex|octal|binaire|caractere|ordinal|globals|locals|sous_classe|instance_de|imprimer|breakpoint|longueur_max|longueur_min|entier_long|complexe|tableau|fige|tranche|type_base)\\b"
+    },
+    "booleans": {
+      "name": "constant.language.frython",
+      "match": "\\b(Vrai|Faux|Rien|NotImplemented|Ellipsis)\\b"
+    },
+    "errors": {
+      "name": "support.type.exception.frython",
+      "match": "\\b(ErreurValeur|ErreurType|ErreurNom|ErreurIndex|ErreurCle|ErreurAttribut|ErreurImport|ErreurMemoire|ErreurRecursion|ErreurSyntaxe|ErreurDivisionZero|ErreurFichier|ErreurPermission|ErreurArret|ErreurOS|ErreurES|ErreurConnexion|ErreurDebordement|ErreurUnicode|ErreurIndentation|ErreurTabulation|ErreurSysteme|ErreurRuntime|ErreurNotImplemented|ErreurTimeout|ErreurInterruption|ErreurAssertion|Avertissement|AvertissementDepreciation|AvertissementRuntime|AvertissementSyntaxe|AvertissementUtilisateur|AvertissementFutur|Exception|BaseException|ValueError|TypeError|NameError|IndexError|KeyError|AttributeError|ImportError|MemoryError|RecursionError|SyntaxError|ZeroDivisionError|FileNotFoundError|PermissionError|StopIteration|OSError|IOError|ConnectionError|OverflowError|RuntimeError|NotImplementedError|TimeoutError|KeyboardInterrupt|AssertionError|Warning)\\b"
+    },
+    "operators": {
+      "patterns": [
+        { "name": "keyword.operator.comparison.frython", "match": "==|!=|<=|>=|<|>" },
+        { "name": "keyword.operator.assignment.augmented.frython", "match": "\\+=|-=|\\*\\*=|\\*=|//=|/=|%=|&=|\\|=|\\^=|>>=|<<=" },
+        { "name": "keyword.operator.walrus.frython", "match": ":=" },
+        { "name": "keyword.operator.assignment.frython", "match": "(?<!=)=(?!=)" },
+        { "name": "keyword.operator.arithmetic.frython", "match": "\\*\\*|//|[+\\-*/%]" },
+        { "name": "keyword.operator.bitwise.frython", "match": "<<|>>|[&|^~]" },
+        { "name": "keyword.operator.arrow.frython", "match": "->" }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        { "name": "punctuation.parenthesis.frython", "match": "[()]" },
+        { "name": "punctuation.brackets.frython", "match": "[\\[\\]]" },
+        { "name": "punctuation.braces.frython", "match": "[{}]" },
+        { "name": "punctuation.separator.comma.frython", "match": "," },
+        { "name": "punctuation.separator.colon.frython", "match": ":" },
+        { "name": "punctuation.accessor.dot.frython", "match": "\\." }
+      ]
+    }
+  }
+}
